@@ -79,8 +79,12 @@
 
 ---
 
+## Screen 1
+
 ![Mastermind-Screen1](images/Mastermind-Screen1.png)
 
 ---
+
+## Screen 2
 
 ![Mastermind-Screen1](images/Mastermind-Screen2.png)
