@@ -16,6 +16,7 @@
    3. Create variable **currentguess**.
    4. Create variable **result**.
    5. Create **winComb** variable.
+   6. Create **sampleboard** variable
 
 ---
 
@@ -51,7 +52,7 @@
    2. (checkCombination()) After the player's input, compare the player's combination with the winning combination:
       1. If the guess matches the winning combination, display the win message, and end the game.
       2. If the guess does not match, generate the feedback board based on the guess:
-         - Count the number of correct colors in the correct position (Black pins).
+         - Count the number of correct colors in the correct position (red pins).
          - Count the number of correct colors only (white pins).
          - If no match, return null.
          - Display pins with colors on the feedback board.
