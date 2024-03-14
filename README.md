@@ -72,3 +72,15 @@
 ---
 
 ---
+
+# Mastermind Wireframe
+
+---
+
+---
+
+![Mastermind-Screen1](images/Mastermind-Screen1.png)
+
+---
+
+![Mastermind-Screen1](images/Mastermind-Screen2.png)
