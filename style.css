@@ -8,6 +8,10 @@ h1 {
     color: rgb(176, 185, 185);
 }
 
+H2 {
+    text-align: center;
+}
+
 
 .container {
     margin: 0 auto;
@@ -88,4 +92,8 @@ h1 {
 
 #reset:hover .button {
     color: rgb(245, 211, 239);
+}
+
+#sample-board {
+    width: 400px;
 }
