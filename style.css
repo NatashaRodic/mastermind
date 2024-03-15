@@ -75,7 +75,7 @@ h1 {
 #reset {
     width: 50px;
     height: 50px;
-    background-color: darkblue;
+    background-color: rgb(28, 28, 95);
     padding: 10px 0px;
     padding-top: 16px;
     border-radius: 10px;
@@ -83,5 +83,9 @@ h1 {
 }
 
 #reset:hover {
-    background-color: rgb(23, 23, 163);
+    background-color: rgb(48, 48, 110);
+}
+
+#reset:hover .button {
+    color: rgb(245, 211, 239);
 }
