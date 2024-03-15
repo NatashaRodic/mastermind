@@ -30,6 +30,29 @@ function init() {
     currentGuess = 0;
     result = null;
     sampleBoard = null,
-        render()
+        winCombo = generateWinCombo();
+    render()
 
+}
+
+function renderPlayersBoard() {
+
+}
+
+function renderFeedbackBoard() {
+
+}
+
+function renderWinningMessage() {
+
+}
+
+function generateWinCombo() {
+
+}
+
+function render() {
+    renderPlayersBoard()
+    renderFeedbackBoard()
+    renderWinningMessage()
 }
