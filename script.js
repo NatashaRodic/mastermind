@@ -18,7 +18,7 @@ const samples = [...document.querySelectorAll('#sample-board > div')]
 console.log(samples)
 
 /*----- event listeners -----*/
-
+document.getElementById('sample-board').addEventListener('click', handleClick);
 
 /*----- functions -----*/
 init();
@@ -36,6 +36,7 @@ function init() {
 }
 
 function renderPlayersBoard() {
+
 
 }
 
