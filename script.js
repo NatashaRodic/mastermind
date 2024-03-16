@@ -37,9 +37,13 @@ function init() {
 
 function handleClick(e) {
     let pickedColor = (e.target.id)
-    console.log(pickedColor)
-    pickedCombinationBoard.push(pickedColor)
-    console.log(pickedCombinationBoard)
+    if (pickedCombinationBoard.length === 4) {
+        return pickedCombinationBoard
+    } else {
+        console.log(pickedColor)
+        pickedCombinationBoard.push(pickedColor)
+        console.log(pickedCombinationBoard)
+    }
 }
 
 function renderPlayersBoard() {
