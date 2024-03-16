@@ -12,6 +12,31 @@ H2 {
     text-align: center;
 }
 
+.red {
+    background-color: red;
+}
+
+.purple {
+    background-color: purple;
+}
+
+.green {
+    background-color: green;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.gray {
+    background-color: gray;
+}
+
+
 
 .container {
     margin: 0 auto;

@@ -15,6 +15,7 @@ let pickedCombinationBoard;
 const message = document.getElementById('message');
 const button = document.querySelector('.button')
 const samples = [...document.querySelectorAll('#sample-board > div')]
+const picked = [...document.querySelectorAll('#picked-comb-board > div')]
 console.log(samples)
 
 /*----- event listeners -----*/
@@ -44,10 +45,23 @@ function handleClick(e) {
         pickedCombinationBoard.push(pickedColor)
         console.log(pickedCombinationBoard)
     }
+    render()
+}
+
+function renderPickedCombinationBoard() {
+    console.log(pickedCombinationBoard)
+    picked.forEach((el, idx) => {
+        const pickedColor = pickedCombinationBoard[idx];
+        el.style.backgroundColor = pickedColor;
+    })
+    // pickedCombinationBoard.forEach((comb) => {
+    //     console.log(picked)
+    //     // picked.classList.add(`${comb}`)
+    // })
 }
 
 function renderPlayersBoard() {
-
+    // console.log(pickedCombinationBoard)
 
 }
 
@@ -66,11 +80,12 @@ function generateWinCombo() {
         winCombo.push(COLOR_PICKED[randomIdx])
     }
     console.log(winCombo)
+    return winCombo
 }
 
 function render() {
+    renderPickedCombinationBoard()
     renderPlayersBoard()
     renderFeedbackBoard()
     renderWinningMessage()
 }
-
