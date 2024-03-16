@@ -1,6 +1,6 @@
 /*----- constants -----*/
 const MAX_ATTEMPTS = 10;
-const COLOR_PICKED = ['red', 'purple', 'blue', 'green', 'yellow', 'gray', 'pink', 'orange']
+const COLOR_PICKED = ['red', 'purple', 'blue', 'green', 'yellow', 'gray']
 
 
 /*----- state variables -----*/
@@ -9,7 +9,7 @@ let feedbackBoard = [];
 let currentGuess;
 let result;
 let winCombo;
-let sampleBoard;
+let pickedCombinationBoard;
 
 /*----- cached elements  -----*/
 const message = document.getElementById('message');
@@ -29,10 +29,17 @@ function init() {
     feedbackBoard = [[null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null]];
     currentGuess = 0;
     result = null;
-    sampleBoard = null,
-        winCombo = generateWinCombo();
+    pickedCombinationBoard = []
+    winCombo = generateWinCombo();
     render()
 
+}
+
+function handleClick(e) {
+    let pickedColor = (e.target.id)
+    console.log(pickedColor)
+    pickedCombinationBoard.push(pickedColor)
+    console.log(pickedCombinationBoard)
 }
 
 function renderPlayersBoard() {
