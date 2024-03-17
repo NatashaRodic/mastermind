@@ -15,11 +15,13 @@ let pickedCombinationBoard;
 const message = document.getElementById('message');
 const button = document.querySelector('.button')
 const samples = [...document.querySelectorAll('#sample-board > div')]
-const picked = [...document.querySelectorAll('#picked-comb-board > div')]
+const combinationBoardDivs = [...document.querySelectorAll('#picked-comb-board > div')]
 console.log(samples)
 
 /*----- event listeners -----*/
-document.getElementById('sample-board').addEventListener('click', handleClick);
+samples.forEach(el => {
+    el.addEventListener('click', handleClick);
+})
 document.getElementById('check').addEventListener('click', handleCheck)
 
 /*----- functions -----*/
@@ -39,27 +41,32 @@ function init() {
 
 function handleClick(e) {
     let pickedColor = (e.target.id)
+
     if (pickedCombinationBoard.length === 4) {
-        return pickedCombinationBoard
+        console.log("last click on pickedBoard");
+        resetCombinationBoard();
+
+        pickedCombinationBoard.push(pickedColor);
+        renderPickedCombinationBoard();
+        render();
     } else {
-        // console.log(pickedColor)
         pickedCombinationBoard.push(pickedColor)
         console.log(pickedCombinationBoard)
     }
-    render()
-    currentGuess += 1
+    renderPickedCombinationBoard();
 }
 
 function handleCheck(e) {
-
-    playersBoard[0] = pickedCombinationBoard
-    console.log(playersBoard[0])
-    console.log(playersBoard)
+    playersBoard[0] = pickedCombinationBoard.slice()
+    console.log(playersBoard[0], playersBoard[1])
 }
 
 function renderPickedCombinationBoard() {
     // console.log(pickedCombinationBoard)
-    picked.forEach((el, idx) => {
+    combinationBoardDivs.forEach((el) => {
+        el.style.backgroundColor = "transparent";
+    })
+    combinationBoardDivs.forEach((el, idx) => {
         const pickedColor = pickedCombinationBoard[idx];
         el.style.backgroundColor = pickedColor;
     })
@@ -90,8 +97,11 @@ function generateWinCombo() {
 }
 
 function render() {
-    renderPickedCombinationBoard()
     renderPlayersBoard()
     renderFeedbackBoard()
     renderWinningMessage()
+}
+
+function resetCombinationBoard() {
+    pickedCombinationBoard = [];
 }
