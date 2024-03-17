@@ -22,7 +22,7 @@ console.log(samples)
 samples.forEach(el => {
     el.addEventListener('click', handleClick);
 })
-document.getElementById('check').addEventListener('click', handleCheck)
+document.getElementById('resetButton').addEventListener('click', handleReset)
 
 /*----- functions -----*/
 init();
@@ -30,7 +30,7 @@ init();
 function init() {
 
     playersBoard = [[null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null]];
-    feedbackBoard = [[null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null]];
+
     currentGuess = 0;
     result = null;
     pickedCombinationBoard = []
@@ -44,15 +44,10 @@ function handleClick(e) {
 
     if (pickedCombinationBoard.length === 4) {
         console.log("last click on pickedBoard");
+        // Move current selection(pickedCombinationBoard) to playersBoard
+        moveToPlayerBoard();
         resetCombinationBoard();
         playersBoard[currentGuess] = (pickedCombinationBoard);
-
-        playersBoard[currentGuess].forEach(function (elem, index) {
-            playersBoard[currentGuess][index] = pickedCombinationBoard[index];
-        });
-
-        currentGuess++;
-        console.log(currentGuess, playersBoard);
         pickedCombinationBoard.push(pickedColor);
         renderPickedCombinationBoard();
         render();
@@ -63,9 +58,10 @@ function handleClick(e) {
     renderPickedCombinationBoard();
 }
 
-function handleCheck(e) {
-    playersBoard[0] = pickedCombinationBoard.slice()
-    console.log(playersBoard[0], playersBoard[1])
+function handleReset(e) {
+    console.log("RESET");
+    resetCombinationBoard();
+    render();
 }
 
 function renderPickedCombinationBoard() {
@@ -86,6 +82,28 @@ function renderPlayersBoard() {
 }
 
 function renderFeedbackBoard() {
+    let feedbackCounter = 0;
+    let feedbackField = 0;
+    let checkingArray = winCombo.slice();
+
+
+    for (let index = 0; index < 4; index++) {
+        if (playersBoard[currentGuess][index] === checkingArray[index]) {
+            document.querySelector(`#f${currentGuess} .circle${feedbackField}`).style.backgroundColor = "red";
+            checkingArray[index] = "checked";
+            feedbackField++;
+        }
+    }
+    // ["checked", "yellow", "yellow", "red"]
+
+    for (let index = 0; index < 4; index++) {
+        if (checkingArray.includes(playersBoard[currentGuess][index])) {
+            document.querySelector(`#f${currentGuess} .circle${feedbackField}`).style.backgroundColor = "white";
+            feedbackField++;
+        }
+    }
+
+    feedbackCounter = 0;
 
 }
 
@@ -100,15 +118,25 @@ function generateWinCombo() {
         winCombo.push(COLOR_PICKED[randomIdx])
     }
     console.log(winCombo)
+    winCombo = ["yellow", "red", "red", "red"];
     return winCombo
 }
 
 function render() {
-    renderPlayersBoard()
-    renderFeedbackBoard()
+    //renderPlayersBoard()
+
     renderWinningMessage()
+    renderPickedCombinationBoard();
 }
 
 function resetCombinationBoard() {
     pickedCombinationBoard = [];
+}
+
+function moveToPlayerBoard() {
+    playersBoard[currentGuess].forEach(function (elem, index) {
+        playersBoard[currentGuess][index] = pickedCombinationBoard[index];
+    });
+    renderFeedbackBoard();
+    currentGuess++;
 }
