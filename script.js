@@ -2,7 +2,6 @@
 const MAX_ATTEMPTS = 10;
 const COLOR_PICKED = ['red', 'purple', 'blue', 'green', 'yellow', 'gray']
 
-
 /*----- state variables -----*/
 let playersBoard = [];
 let feedbackBoard = [];
@@ -25,20 +24,16 @@ samples.forEach(el => {
 document.getElementById('resetButton').addEventListener('click', handleReset)
 document.getElementById('checkButton').addEventListener('click', handleCheck)
 
-
 /*----- functions -----*/
 init();
 
 function init() {
-
     playersBoard = [[null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null]];
-
     currentGuess = 0;
     result = null;
     pickedCombinationBoard = []
     winCombo = generateWinCombo();
     render()
-
 }
 
 function handleClick(e) {
@@ -62,10 +57,8 @@ function handleCheck(e) {
     renderPickedCombinationBoard();
     render();
     currentGuess++;
-
 }
 function renderPickedCombinationBoard() {
-    // console.log(pickedCombinationBoard)
     combinationBoardDivs.forEach((el) => {
         el.style.backgroundColor = "transparent";
     })
@@ -76,8 +69,6 @@ function renderPickedCombinationBoard() {
 }
 
 function renderPlayersBoard() {
-    // console.log(playersBoard)
-    // playersBoard[1] = 'yellow'
 
 }
 
@@ -85,7 +76,6 @@ function renderFeedbackBoard() {
     let feedbackField = 0;
     let playerChoice = playersBoard[currentGuess].slice();
     let winningSet = winCombo.slice();
-
     for (let index = 0; index < 4; index++) {
         if (playerChoice[index] === winningSet[index]) {
             document.querySelector(`#f${currentGuess} .circle${feedbackField}`).style.backgroundColor = "red";
@@ -93,12 +83,10 @@ function renderFeedbackBoard() {
             feedbackField++;
         }
     }
-
     for (let index = 0; index < 4; index++) {
         if (winningSet.includes(playerChoice[index]) && playerChoice[index] !== "checked") {
             document.querySelector(`#f${currentGuess} .circle${feedbackField}`).style.backgroundColor = "white";
             winningSet[winningSet.indexOf(playerChoice[index])] = "checked";
-
             feedbackField++;
         }
     }
@@ -114,7 +102,7 @@ function generateWinCombo() {
         let randomIdx = Math.floor(Math.random() * COLOR_PICKED.length);
         winCombo.push(COLOR_PICKED[randomIdx])
     }
-    console.log(winCombo)
+    // console.log(winCombo)
     winCombo = ["yellow", "red", "red", "red"];
     return winCombo
 }
@@ -133,5 +121,4 @@ function moveToPlayerBoard() {
         playersBoard[currentGuess][index] = pickedCombinationBoard[index];
     });
     renderFeedbackBoard();
-    currentGuess++;
 }
