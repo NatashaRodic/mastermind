@@ -92,16 +92,8 @@ H2 {
     background-color: rgb(223, 220, 220);
 }
 
-.button {
-    color: white;
-    font-size: 14px;
-    font-weight: 800;
-    display: block;
-    position: relative;
-    transform: rotate(-45deg);
-}
 
-#reset {
+#check {
     width: 50px;
     height: 50px;
     background-color: rgb(28, 28, 95);
@@ -111,13 +103,23 @@ H2 {
     box-sizing: border-box;
 }
 
-#reset:hover {
+#check:hover {
     background-color: rgb(48, 48, 110);
 }
 
-#reset:hover .button {
+#check:hover .button {
     color: rgb(245, 211, 239);
 }
+
+#check .button {
+    color: white;
+    font-size: 14px;
+    font-weight: 800;
+    display: block;
+    position: relative;
+    transform: rotate(-45deg);
+}
+
 
 #sample-board {
     width: 400px;

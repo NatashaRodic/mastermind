@@ -23,6 +23,8 @@ samples.forEach(el => {
     el.addEventListener('click', handleClick);
 })
 document.getElementById('resetButton').addEventListener('click', handleReset)
+document.getElementById('checkButton').addEventListener('click', handleCheck)
+
 
 /*----- functions -----*/
 init();
@@ -41,20 +43,7 @@ function init() {
 
 function handleClick(e) {
     let pickedColor = (e.target.id)
-
-    if (pickedCombinationBoard.length === 4) {
-        console.log("last click on pickedBoard");
-        // Move current selection(pickedCombinationBoard) to playersBoard
-        moveToPlayerBoard();
-        resetCombinationBoard();
-        playersBoard[currentGuess] = (pickedCombinationBoard);
-        pickedCombinationBoard.push(pickedColor);
-        renderPickedCombinationBoard();
-        render();
-    } else {
-        pickedCombinationBoard.push(pickedColor)
-        console.log(pickedCombinationBoard)
-    }
+    pickedCombinationBoard.push(pickedColor);
     renderPickedCombinationBoard();
 }
 
@@ -64,6 +53,17 @@ function handleReset(e) {
     render();
 }
 
+
+function handleCheck(e) {
+    console.log("CHECK");
+    renderFeedbackBoard();
+    moveToPlayerBoard();
+    resetCombinationBoard();
+    renderPickedCombinationBoard();
+    render();
+    currentGuess++;
+
+}
 function renderPickedCombinationBoard() {
     // console.log(pickedCombinationBoard)
     combinationBoardDivs.forEach((el) => {
@@ -82,29 +82,26 @@ function renderPlayersBoard() {
 }
 
 function renderFeedbackBoard() {
-    let feedbackCounter = 0;
     let feedbackField = 0;
-    let checkingArray = winCombo.slice();
-
+    let playerChoice = playersBoard[currentGuess].slice();
+    let winningSet = winCombo.slice();
 
     for (let index = 0; index < 4; index++) {
-        if (playersBoard[currentGuess][index] === checkingArray[index]) {
+        if (playerChoice[index] === winningSet[index]) {
             document.querySelector(`#f${currentGuess} .circle${feedbackField}`).style.backgroundColor = "red";
-            checkingArray[index] = "checked";
+            playerChoice[index] = winningSet[index] = "checked";
             feedbackField++;
         }
     }
-    // ["checked", "yellow", "yellow", "red"]
 
     for (let index = 0; index < 4; index++) {
-        if (checkingArray.includes(playersBoard[currentGuess][index])) {
+        if (winningSet.includes(playerChoice[index]) && playerChoice[index] !== "checked") {
             document.querySelector(`#f${currentGuess} .circle${feedbackField}`).style.backgroundColor = "white";
+            winningSet[winningSet.indexOf(playerChoice[index])] = "checked";
+
             feedbackField++;
         }
     }
-
-    feedbackCounter = 0;
-
 }
 
 function renderWinningMessage() {
@@ -123,8 +120,6 @@ function generateWinCombo() {
 }
 
 function render() {
-    //renderPlayersBoard()
-
     renderWinningMessage()
     renderPickedCombinationBoard();
 }
