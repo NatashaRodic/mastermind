@@ -45,7 +45,14 @@ function handleClick(e) {
     if (pickedCombinationBoard.length === 4) {
         console.log("last click on pickedBoard");
         resetCombinationBoard();
+        playersBoard[currentGuess] = (pickedCombinationBoard);
 
+        playersBoard[currentGuess].forEach(function (elem, index) {
+            playersBoard[currentGuess][index] = pickedCombinationBoard[index];
+        });
+
+        currentGuess++;
+        console.log(currentGuess, playersBoard);
         pickedCombinationBoard.push(pickedColor);
         renderPickedCombinationBoard();
         render();
