@@ -20,6 +20,7 @@ console.log(samples)
 
 /*----- event listeners -----*/
 document.getElementById('sample-board').addEventListener('click', handleClick);
+document.getElementById('check').addEventListener('click', handleCheck)
 
 /*----- functions -----*/
 init();
@@ -41,27 +42,32 @@ function handleClick(e) {
     if (pickedCombinationBoard.length === 4) {
         return pickedCombinationBoard
     } else {
-        console.log(pickedColor)
+        // console.log(pickedColor)
         pickedCombinationBoard.push(pickedColor)
         console.log(pickedCombinationBoard)
     }
     render()
+    currentGuess += 1
+}
+
+function handleCheck(e) {
+
+    playersBoard[0] = pickedCombinationBoard
+    console.log(playersBoard[0])
+    console.log(playersBoard)
 }
 
 function renderPickedCombinationBoard() {
-    console.log(pickedCombinationBoard)
+    // console.log(pickedCombinationBoard)
     picked.forEach((el, idx) => {
         const pickedColor = pickedCombinationBoard[idx];
         el.style.backgroundColor = pickedColor;
     })
-    // pickedCombinationBoard.forEach((comb) => {
-    //     console.log(picked)
-    //     // picked.classList.add(`${comb}`)
-    // })
 }
 
 function renderPlayersBoard() {
-    // console.log(pickedCombinationBoard)
+    // console.log(playersBoard)
+    // playersBoard[1] = 'yellow'
 
 }
 
