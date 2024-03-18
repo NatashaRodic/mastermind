@@ -34,6 +34,9 @@ function init() {
 }
 
 function handleClick(e) {
+    if (pickedCombinationBoard.length >= 4) {
+        return
+    }
     let pickedColor = (e.target.id)
     pickedCombinationBoard.push(pickedColor);
     renderPickedCombinationBoard();
@@ -102,6 +105,7 @@ function generateWinCombo() {
         let randomIdx = Math.floor(Math.random() * COLOR_PICKED.length);
         winCombo.push(COLOR_PICKED[randomIdx])
     }
+    console.log(winCombo)
     return winCombo
 }
 
