@@ -53,6 +53,7 @@ function handleCheck(e) {
     moveToPlayerBoard();
     resetCombinationBoard();
     renderPickedCombinationBoard();
+    renderWinningMessage()
     render();
     currentGuess++;
 }
@@ -69,8 +70,11 @@ function renderPickedCombinationBoard() {
 function renderPlayersBoard() {
     playersBoard[currentGuess] = [...pickedCombinationBoard];
     playersBoard[currentGuess].forEach((el, idx) => {
-        // console.log(el)
-        document.querySelector(`#p${currentGuess} .circle${idx}`).classList.add(`${el}`)
+        const selector = `#p${currentGuess} .circle${idx}`;
+        const element = document.querySelector(selector);
+        console.log("Selected Element:", element);
+        element.classList.add(`${el}`);
+        // document.querySelector(`#p${currentGuess} .circle${idx}`).classList.add(`${el}`)
     })
 
 }
@@ -95,9 +99,6 @@ function renderFeedbackBoard() {
     }
 }
 
-function renderWinningMessage() {
-
-}
 
 function generateWinCombo() {
     let winCombo = [];
@@ -123,4 +124,13 @@ function moveToPlayerBoard() {
         playersBoard[currentGuess][index] = pickedCombinationBoard[index];
     });
     renderFeedbackBoard();
+}
+
+function renderWinningMessage() {
+    if (currentGuess === 9) {
+        message.innerText = `You Lost this game 😭`
+    }
+    else if (playersBoard[currentGuess].every((el, idx) => el === winCombo[idx])) {
+        message.innerText = `You Guessed the combination 🎉`
+    }
 }
