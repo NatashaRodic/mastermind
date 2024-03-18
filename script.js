@@ -72,9 +72,7 @@ function renderPlayersBoard() {
     playersBoard[currentGuess].forEach((el, idx) => {
         const selector = `#p${currentGuess} .circle${idx}`;
         const element = document.querySelector(selector);
-        console.log("Selected Element:", element);
         element.classList.add(`${el}`);
-        // document.querySelector(`#p${currentGuess} .circle${idx}`).classList.add(`${el}`)
     })
 
 }
@@ -106,7 +104,6 @@ function generateWinCombo() {
         let randomIdx = Math.floor(Math.random() * COLOR_PICKED.length);
         winCombo.push(COLOR_PICKED[randomIdx])
     }
-    console.log(winCombo)
     return winCombo
 }
 
@@ -128,7 +125,7 @@ function moveToPlayerBoard() {
 
 function renderWinningMessage() {
     if (currentGuess === 9) {
-        message.innerText = `You Lost this game 😭`
+        message.innerText = `You Lost the game 😭`
     }
     else if (playersBoard[currentGuess].every((el, idx) => el === winCombo[idx])) {
         message.innerText = `You Guessed the combination 🎉`

@@ -93,7 +93,7 @@ H2 {
 }
 
 .gray-bg {
-    background-color: rgb(223, 220, 220);
+    background-color: rgb(215, 215, 215);
 }
 
 
@@ -127,4 +127,13 @@ H2 {
 
 #sample-board {
     width: 400px;
+}
+
+#sample-board div {
+    border: rgb(220, 243, 244) 5px solid;
+}
+
+#sample-board div:hover {
+    border: rgb(213, 137, 204) 5px solid;
+    cursor: pointer;
 }
