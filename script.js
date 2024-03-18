@@ -15,7 +15,6 @@ const message = document.getElementById('message');
 const button = document.querySelector('.button')
 const samples = [...document.querySelectorAll('#sample-board > div')]
 const combinationBoardDivs = [...document.querySelectorAll('#picked-comb-board > div')]
-console.log(samples)
 
 /*----- event listeners -----*/
 samples.forEach(el => {
@@ -43,15 +42,14 @@ function handleClick(e) {
 }
 
 function handleReset(e) {
-    console.log("RESET");
     resetCombinationBoard();
     render();
 }
 
 
 function handleCheck(e) {
-    console.log("CHECK");
     renderFeedbackBoard();
+    renderPlayersBoard()
     moveToPlayerBoard();
     resetCombinationBoard();
     renderPickedCombinationBoard();
@@ -69,6 +67,11 @@ function renderPickedCombinationBoard() {
 }
 
 function renderPlayersBoard() {
+    playersBoard[currentGuess] = [...pickedCombinationBoard];
+    playersBoard[currentGuess].forEach((el, idx) => {
+        // console.log(el)
+        document.querySelector(`#p${currentGuess} .circle${idx}`).classList.add(`${el}`)
+    })
 
 }
 
@@ -102,8 +105,7 @@ function generateWinCombo() {
         let randomIdx = Math.floor(Math.random() * COLOR_PICKED.length);
         winCombo.push(COLOR_PICKED[randomIdx])
     }
-    // console.log(winCombo)
-    winCombo = ["yellow", "red", "red", "red"];
+    console.log(winCombo)
     return winCombo
 }
 
