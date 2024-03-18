@@ -137,3 +137,7 @@ H2 {
     border: rgb(255, 0, 225) 5px solid;
     cursor: pointer;
 }
+
+#resetButton {
+    background-color: aliceblue;
+}

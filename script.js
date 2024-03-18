@@ -11,7 +11,7 @@ let pickedCombinationBoard;
 
 /*----- cached elements  -----*/
 const message = document.getElementById('message');
-const button = document.querySelector('.button')
+const playButton = document.getElementById('play')
 const samples = [...document.querySelectorAll('#sample-board > div')]
 const combinationBoardDivs = [...document.querySelectorAll('#picked-comb-board > div')]
 
@@ -21,6 +21,7 @@ samples.forEach(el => {
 })
 document.getElementById('resetButton').addEventListener('click', handleReset)
 document.getElementById('checkButton').addEventListener('click', handleCheck)
+
 
 /*----- functions -----*/
 init();
@@ -126,13 +127,14 @@ function moveToPlayerBoard() {
 }
 
 function renderWinningMessage() {
-    if (currentGuess === 9) {
-        message.innerText = `You Lost the game 😭`
-    }
-    else if (playersBoard[currentGuess].every((el, idx) => el === winCombo[idx])) {
+
+    if (playersBoard[currentGuess].every((el, idx) => el === winCombo[idx])) {
         message.innerText = `You Guessed the combination 🎉`
         samples.forEach(el => {
             el.removeEventListener('click', handleClick);
         })
+    } else if (currentGuess === 9) {
+        message.innerText = `You Lost the game 😭`
     }
+
 }
