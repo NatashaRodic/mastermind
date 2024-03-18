@@ -134,6 +134,6 @@ H2 {
 }
 
 #sample-board div:hover {
-    border: rgb(213, 137, 204) 5px solid;
+    border: rgb(255, 0, 225) 5px solid;
     cursor: pointer;
 }

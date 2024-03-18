@@ -6,7 +6,6 @@ const COLOR_PICKED = ['red', 'purple', 'blue', 'green', 'yellow', 'gray']
 let playersBoard = [];
 let feedbackBoard = [];
 let currentGuess;
-let result;
 let winCombo;
 let pickedCombinationBoard;
 
@@ -29,7 +28,6 @@ init();
 function init() {
     playersBoard = [[null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null]];
     currentGuess = 0;
-    result = null;
     pickedCombinationBoard = []
     winCombo = generateWinCombo();
     render()
