@@ -1,6 +1,14 @@
 /*----- constants -----*/
 const MAX_ATTEMPTS = 10;
 const COLOR_PICKED = ['red', 'purple', 'blue', 'green', 'yellow', 'orange']
+const sounds = {
+    red: '',
+    purple: '',
+    blue: '',
+    green: '',
+    yellow: '',
+    orange: '',
+}
 
 /*----- state variables -----*/
 let playersBoard = [];
@@ -10,6 +18,7 @@ let winCombo;
 let pickedCombinationBoard;
 
 /*----- cached elements  -----*/
+
 const message = document.getElementById('message');
 const playButton = document.getElementById('play')
 const samples = [...document.querySelectorAll('#sample-board > div')]
