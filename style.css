@@ -1,15 +1,37 @@
+/* VARIABLES */
+:root {
+    /* COLOR VARIABLES */
+    --main-bg-pink: #DA0463;
+    --main-bg-light: #f1f1f2;
+    /* TEXT VARIABLES */
+    --text-black: #252528;
+    --text-white: #FFFFFF;
+    /* --body-font: 'Inter';
+    --heading-font: 'Lobster'; */
+    --standard-width: 1144px;
+}
+
+
 body {
-    background-color: rgb(185, 203, 204);
+    margin: 0;
+    padding: 0;
 }
 
 html {
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--main-bg-light);
 }
 
 h1 {
     text-align: center;
     font-weight: lighter;
-    color: rgb(176, 185, 185);
+    font-family: "Black Ops One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--main-bg-pink);
+    color: #da047da9;
 }
 
 H2 {
@@ -45,7 +67,10 @@ H2 {
     background-color: transparent;
 }
 
-
+.left-container {
+    align-items: center;
+    justify-content: center;
+}
 
 .container {
     margin: 0 auto;
@@ -55,17 +80,18 @@ H2 {
 .board {
     display: flex;
     border: 1px solid rgb(166, 164, 164);
-    width: 250px;
+    width: 200px;
     justify-content: space-around;
     align-items: center;
     border-radius: 10px;
     margin: 10px;
+    background-color: var(--main-bg-light);
 }
 
 .board div {
     border: 1px solid rgb(166, 164, 164);
-    height: 30px;
-    width: 30px;
+    height: 20px;
+    width: 20px;
     border-radius: 50px;
     margin: 10px
 }
@@ -96,8 +122,8 @@ H2 {
     justify-content: center;
 }
 
-.gray-bg {
-    background-color: rgb(215, 215, 215);
+.light-bg {
+    background-color: var(--main-bg-light);
 }
 
 
@@ -129,21 +155,32 @@ H2 {
 }
 
 
-#sample-board {
-    width: 400px;
-}
-
 #sample-board div {
-    border: rgb(220, 243, 244) 5px solid;
+    border: transparent 2px solid;
 }
 
 #sample-board div:hover {
-    border: rgb(255, 0, 225) 5px solid;
+    border: var(--main-bg-pink) 2px solid;
     cursor: pointer;
 }
 
 /* Add sound to each color */
 
-#resetButton {
-    background-color: aliceblue;
+
+
+.full-board {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.playersBoard {
+    order: 2;
+}
+
+.sampleBoard {
+    flex-direction: column;
+    width: 10px;
+    order: 1;
+    margin-bottom: 28px;
 }
