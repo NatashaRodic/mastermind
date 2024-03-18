@@ -184,3 +184,38 @@ H2 {
     order: 1;
     margin-bottom: 28px;
 }
+
+
+
+.controlButton {
+    color: rgb(239, 181, 181);
+    background-color: rgb(111, 4, 75);
+    border: 1px solid var(--text-black);
+    padding: 5px 10px;
+    display: inline-block;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.controlButton:hover {
+    cursor: pointer;
+    color: rgb(111, 4, 75);
+    background-color: rgb(239, 181, 181);
+}
+
+.controlButton a {
+    color: rgb(239, 181, 181);
+    text-decoration: none;
+}
+
+.controlButton:hover a {
+    color: rgb(111, 4, 75);
+}
+
+.background {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    z-index: -100;
+}
