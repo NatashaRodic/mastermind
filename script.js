@@ -1,6 +1,6 @@
 /*----- constants -----*/
 const MAX_ATTEMPTS = 10;
-const COLOR_PICKED = ['red', 'purple', 'blue', 'green', 'yellow', 'gray']
+const COLOR_PICKED = ['red', 'purple', 'blue', 'green', 'yellow', 'orange']
 
 /*----- state variables -----*/
 let playersBoard = [];
@@ -64,8 +64,8 @@ function renderPickedCombinationBoard() {
         el.style.backgroundColor = "transparent";
     })
     combinationBoardDivs.forEach((el, idx) => {
-        const pickedColor = pickedCombinationBoard[idx];
-        el.style.backgroundColor = pickedColor;
+        pickedColor = pickedCombinationBoard[idx]
+        el.style.backgroundColor = pickedColor
     })
 }
 
