@@ -132,5 +132,8 @@ function renderWinningMessage() {
     }
     else if (playersBoard[currentGuess].every((el, idx) => el === winCombo[idx])) {
         message.innerText = `You Guessed the combination 🎉`
+        samples.forEach(el => {
+            el.removeEventListener('click', handleClick);
+        })
     }
 }
