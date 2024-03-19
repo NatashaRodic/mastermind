@@ -67,7 +67,7 @@ h2 {
     justify-content: space-around;
     align-items: center;
     border-radius: var(--standard-border-radius);
-    margin: 10px;
+    margin: 3px 10px;
     background-color: var(--main-bg-light);
 }
 

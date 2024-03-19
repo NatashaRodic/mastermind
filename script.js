@@ -21,7 +21,7 @@ samples.forEach(el => {
     el.addEventListener('click', handleClick);
 })
 document.getElementById('resetButton').addEventListener('click', handleReset)
-document.getElementById('checkButton').addEventListener('click', handleCheck)
+document.getElementById('check').addEventListener('click', handleCheck)
 let click = document.getElementById("clickSound");
 let check = document.getElementById("checkSound")
 
