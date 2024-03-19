@@ -29,6 +29,7 @@ let check = document.getElementById("checkSound")
 /*----- functions -----*/
 init();
 
+// Initialize the game
 function init() {
     playersBoard = [[null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null], [null, null, null, null]];
     currentGuess = 0;
@@ -37,6 +38,7 @@ function init() {
     render()
 }
 
+// Handle click on color sample
 function handleClick(e) {
     click.play()
     if (pickedCombinationBoard.length >= 4) {
@@ -47,12 +49,13 @@ function handleClick(e) {
     renderPickedCombinationBoard();
 }
 
+// Handle click on reset button
 function handleReset(e) {
     resetCombinationBoard();
     render();
 }
 
-
+// Handle click on check button
 function handleCheck(e) {
     check.play()
     if (pickedCombinationBoard.length < 4) {
@@ -68,6 +71,8 @@ function handleCheck(e) {
     render();
     currentGuess++;
 }
+
+// Render the picked combination board
 function renderPickedCombinationBoard() {
     combinationBoardDivs.forEach((el) => {
         el.className = ''; // Clear all existing classes
@@ -79,6 +84,7 @@ function renderPickedCombinationBoard() {
     })
 }
 
+// Render player's board
 function renderPlayersBoard() {
     playersBoard[currentGuess] = [...pickedCombinationBoard];
     playersBoard[currentGuess].forEach((el, idx) => {
@@ -89,6 +95,7 @@ function renderPlayersBoard() {
 
 }
 
+// Render feedback for the current guess
 function renderFeedbackBoard() {
     let feedbackField = 0;
     let playerChoice = playersBoard[currentGuess].slice();
@@ -109,7 +116,7 @@ function renderFeedbackBoard() {
     }
 }
 
-
+// Generate winning combination
 function generateWinCombo() {
     let winCombo = [];
     for (let i = 0; i < 4; i++) {
@@ -120,15 +127,18 @@ function generateWinCombo() {
     return winCombo
 }
 
+// Render game state
 function render() {
     renderWinningMessage()
     renderPickedCombinationBoard();
 }
 
+// Reset combination board
 function resetCombinationBoard() {
     pickedCombinationBoard = [];
 }
 
+// Move picked combination to player's board
 function moveToPlayerBoard() {
     playersBoard[currentGuess].forEach(function (elem, index) {
         playersBoard[currentGuess][index] = pickedCombinationBoard[index];
@@ -136,8 +146,8 @@ function moveToPlayerBoard() {
     renderFeedbackBoard();
 }
 
+// Render winning/losing message
 function renderWinningMessage() {
-
     if (playersBoard[currentGuess].every((el, idx) => el === winCombo[idx])) {
         message.innerText = `You Guessed the combination 🎉`
         samples.forEach(el => {
@@ -146,5 +156,4 @@ function renderWinningMessage() {
     } else if (currentGuess === 9) {
         message.innerText = `You Lost the game 😭`
     }
-
 }

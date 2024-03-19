@@ -199,7 +199,7 @@ h2 {
     color: var(--button-hover-color);
 }
 
-/*  */
+/* GENERAL STYLES */
 
 .background {
     position: absolute;
@@ -240,4 +240,11 @@ h2 {
 
 .transparent {
     background-color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 28px;
+    }
+
 }
