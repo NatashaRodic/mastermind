@@ -31,6 +31,7 @@ samples.forEach(el => {
 document.getElementById('resetButton').addEventListener('click', handleReset)
 document.getElementById('checkButton').addEventListener('click', handleCheck)
 let click = document.getElementById("clickSound");
+let check = document.getElementById("checkSound")
 
 
 
@@ -62,6 +63,7 @@ function handleReset(e) {
 
 
 function handleCheck(e) {
+    check.play()
     renderFeedbackBoard();
     renderPlayersBoard()
     moveToPlayerBoard();

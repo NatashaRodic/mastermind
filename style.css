@@ -103,8 +103,8 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     grid-gap: 10px;
     background-color: rgb(38, 38, 38);
     padding: 5px;
@@ -116,7 +116,6 @@ h2 {
     border: 2px solid var(--standard-border);
     background-color: rgb(38, 38, 38);
     border-radius: var(--circle-border-radius);
-
 }
 
 /* Sample Board Styles */
@@ -141,17 +140,18 @@ h2 {
 /* Button Styles */
 
 #check {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     background-color: rgb(28, 28, 95);
     padding: 10px 0px;
-    padding-top: 16px;
+    padding-top: 14px;
     border-radius: var(--standard-border-radius);
     box-sizing: border-box;
 }
 
 #check:hover {
     background-color: rgb(48, 48, 110);
+    cursor: pointer;
 }
 
 #check:hover .button {
@@ -160,21 +160,28 @@ h2 {
 
 #check .button {
     color: white;
-    font-size: 14px;
+    font-size: 11px;
     font-weight: 800;
     display: block;
     position: relative;
     transform: rotate(-45deg);
 }
 
+.controlButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .controlButton {
     color: var(--standard-button-color);
     background-color: var(--button-hover-color);
-    border: 1px solid var(--text-black);
+    border: 1px solid var(--button-hover-color);
     padding: 5px 10px;
     display: inline-block;
     border-radius: 10px;
     font-size: 12px;
+    margin: 0 5px
 }
 
 .controlButton:hover {
