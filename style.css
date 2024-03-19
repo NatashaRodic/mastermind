@@ -3,12 +3,19 @@
     /* COLOR VARIABLES */
     --main-bg-pink: #DA0463;
     --main-bg-light: #f1f1f2;
+    --primary-hover-color: #f5d3ef;
+    --standard-border: #a6a4a4;
+    --standard-button-color: #efb5b5;
+    --button-hover-color: #6f044b;
     /* TEXT VARIABLES */
     --text-black: #252528;
     --text-white: #FFFFFF;
     /* --body-font: 'Inter';
     --heading-font: 'Lobster'; */
     --standard-width: 1144px;
+
+    --standard-border-radius: 10px;
+    --circle-border-radius: 50px;
 }
 
 
@@ -79,20 +86,20 @@ H2 {
 
 .board {
     display: flex;
-    border: 1px solid rgb(166, 164, 164);
+    border: 1px solid var(--standard-border);
     width: 200px;
     justify-content: space-around;
     align-items: center;
-    border-radius: 10px;
+    border-radius: var(--standard-border-radius);
     margin: 10px;
     background-color: var(--main-bg-light);
 }
 
 .board div {
-    border: 1px solid rgb(166, 164, 164);
+    border: 1px solid var(--standard-border);
     height: 20px;
     width: 20px;
-    border-radius: 50px;
+    border-radius: var(--circle-border-radius);
     margin: 10px
 }
 
@@ -105,14 +112,14 @@ H2 {
     grid-gap: 10px;
     background-color: rgb(38, 38, 38);
     padding: 5px;
-    border-radius: 10px;
+    border-radius: var(--standard-border-radius);
     box-sizing: border-box;
 }
 
 .f-board div {
-    border: 2px solid rgb(122, 121, 121);
+    border: 2px solid var(--standard-border);
     background-color: rgb(38, 38, 38);
-    border-radius: 50px;
+    border-radius: var(--circle-border-radius);
 
 }
 
@@ -133,7 +140,7 @@ H2 {
     background-color: rgb(28, 28, 95);
     padding: 10px 0px;
     padding-top: 16px;
-    border-radius: 10px;
+    border-radius: var(--standard-border-radius);
     box-sizing: border-box;
 }
 
@@ -142,7 +149,7 @@ H2 {
 }
 
 #check:hover .button {
-    color: rgb(245, 211, 239);
+    color: #f5d3ef;
 }
 
 #check .button {
@@ -163,9 +170,6 @@ H2 {
     border: var(--main-bg-pink) 2px solid;
     cursor: pointer;
 }
-
-/* Add sound to each color */
-
 
 
 .full-board {
@@ -188,28 +192,28 @@ H2 {
 
 
 .controlButton {
-    color: rgb(239, 181, 181);
-    background-color: rgb(111, 4, 75);
+    color: var(--standard-button-color);
+    background-color: var(--button-hover-color);
     border: 1px solid var(--text-black);
     padding: 5px 10px;
     display: inline-block;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 12px;
 }
 
 .controlButton:hover {
     cursor: pointer;
-    color: rgb(111, 4, 75);
-    background-color: rgb(239, 181, 181);
+    color: var(--button-hover-color);
+    background-color: var(--standard-button-color);
 }
 
 .controlButton a {
-    color: rgb(239, 181, 181);
+    color: var(--standard-button-color);
     text-decoration: none;
 }
 
 .controlButton:hover a {
-    color: rgb(111, 4, 75);
+    color: var(--button-hover-color);
 }
 
 .background {
