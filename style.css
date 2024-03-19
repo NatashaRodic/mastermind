@@ -1,7 +1,7 @@
 /* VARIABLES */
 :root {
     /* COLOR VARIABLES */
-    --main-bg-pink: #DA0463;
+    --main-bg-pink: #af125b;
     --main-bg-light: #f1f1f2;
     --primary-hover-color: #f5d3ef;
     --standard-border: #a6a4a4;
@@ -38,7 +38,7 @@ h1 {
     font-weight: 400;
     font-style: normal;
     color: var(--main-bg-pink);
-    color: #da047da9;
+    font-size: 28px;
 }
 
 h2 {
@@ -47,23 +47,11 @@ h2 {
 
 /* LAYOUT STYLES */
 
-.container {
-    margin: 0 auto;
-    max-width: 1000px;
-}
-
-.left-container {
-    align-items: center;
-    justify-content: center;
-}
-
-
 /* BOARD STYLES */
 
 .board {
     display: flex;
     border: 1px solid var(--standard-border);
-    width: 200px;
     justify-content: space-around;
     align-items: center;
     border-radius: var(--standard-border-radius);
@@ -103,17 +91,19 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     grid-gap: 10px;
-    background-color: rgb(38, 38, 38);
+
+    background-color: rgba(78, 70, 89, 0.824);
+
     padding: 5px;
     border-radius: var(--standard-border-radius);
     box-sizing: border-box;
 }
 
 .f-board div {
-    border: 2px solid var(--standard-border);
+    border: 1px solid var(--standard-border);
     background-color: rgb(38, 38, 38);
     border-radius: var(--circle-border-radius);
 }
@@ -132,7 +122,7 @@ h2 {
 }
 
 #sample-board div:hover {
-    border: var(--main-bg-pink) 2px solid;
+    border: var(--text-black) 2px solid;
     cursor: pointer;
 }
 
@@ -142,7 +132,7 @@ h2 {
 #check {
     width: 40px;
     height: 40px;
-    background-color: rgb(28, 28, 95);
+    background-color: #af125b;
     padding: 10px 0px;
     padding-top: 14px;
     border-radius: var(--standard-border-radius);
@@ -168,20 +158,23 @@ h2 {
 }
 
 .controlButtons {
+    max-width: 200px;
+    margin: 0 auto;
+    margin-top: 20px;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .controlButton {
-    color: var(--standard-button-color);
-    background-color: var(--button-hover-color);
-    border: 1px solid var(--button-hover-color);
-    padding: 5px 10px;
+    color: var(--main-bg-pink);
+    background-color: var(--button-color);
+    border: 1px solid var(--main-bg-pink);
+    padding: 5px 7px;
     display: inline-block;
     border-radius: 10px;
+    font-weight: 700;
     font-size: 12px;
-    margin: 0 5px
 }
 
 .controlButton:hover {
@@ -214,7 +207,7 @@ h2 {
 }
 
 .red {
-    background-color: rgb(160, 21, 62);
+    background-color: rgb(155, 6, 108);
 }
 
 .purple {
@@ -242,9 +235,42 @@ h2 {
     background-color: white;
 }
 
-@media only screen and (max-width: 600px) {
+
+@media only screen and (min-width: 600px) {
     h1 {
         font-size: 28px;
     }
 
+    .f-board,
+    .board div {
+        width: 64px;
+        height: 64px;
+    }
+
+    .f-board {
+        width: 90px;
+        height: 90px;
+    }
+
+    #check {
+        padding-top: 26px;
+        padding-left: 5px;
+        width: 90px;
+        height: 90px;
+    }
+
+    #check .button {
+        font-size: 20px;
+    }
+
+    .sampleBoard {
+        flex-direction: column;
+        width: auto;
+        order: 1;
+        margin-bottom: 0px;
+    }
+
+    .controlButtons {
+        max-width: 300px;
+    }
 }
