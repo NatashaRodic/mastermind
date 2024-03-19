@@ -1,14 +1,6 @@
 /*----- constants -----*/
 const MAX_ATTEMPTS = 10;
 const COLOR_PICKED = ['red', 'purple', 'blue', 'green', 'yellow', 'orange']
-const sounds = {
-    red: '',
-    purple: '',
-    blue: '',
-    green: '',
-    yellow: '',
-    orange: '',
-}
 
 /*----- state variables -----*/
 let playersBoard = [];
@@ -32,7 +24,6 @@ document.getElementById('resetButton').addEventListener('click', handleReset)
 document.getElementById('checkButton').addEventListener('click', handleCheck)
 let click = document.getElementById("clickSound");
 let check = document.getElementById("checkSound")
-
 
 
 /*----- functions -----*/
@@ -64,6 +55,9 @@ function handleReset(e) {
 
 function handleCheck(e) {
     check.play()
+    if (pickedCombinationBoard.length < 4) {
+        return
+    }
     renderFeedbackBoard();
     renderPlayersBoard()
     moveToPlayerBoard();
