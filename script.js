@@ -30,6 +30,8 @@ samples.forEach(el => {
 })
 document.getElementById('resetButton').addEventListener('click', handleReset)
 document.getElementById('checkButton').addEventListener('click', handleCheck)
+let click = document.getElementById("clickSound");
+
 
 
 /*----- functions -----*/
@@ -44,6 +46,7 @@ function init() {
 }
 
 function handleClick(e) {
+    click.play()
     if (pickedCombinationBoard.length >= 4) {
         return
     }
@@ -64,17 +67,19 @@ function handleCheck(e) {
     moveToPlayerBoard();
     resetCombinationBoard();
     renderPickedCombinationBoard();
+    pickedCombinationBoard = []
     renderWinningMessage()
     render();
     currentGuess++;
 }
 function renderPickedCombinationBoard() {
     combinationBoardDivs.forEach((el) => {
-        el.style.backgroundColor = "transparent";
-    })
+        el.className = ''; // Clear all existing classes
+    });
+
     combinationBoardDivs.forEach((el, idx) => {
         pickedColor = pickedCombinationBoard[idx]
-        el.style.backgroundColor = pickedColor
+        el.classList.add(`${pickedColor}`)
     })
 }
 
