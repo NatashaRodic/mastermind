@@ -1,5 +1,5 @@
 # Mastermind Pseudocode
-
+[Live Link] (https://natasharodic.github.io/mastermind/)
 ---
 
 ---
