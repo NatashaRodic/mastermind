@@ -19,6 +19,7 @@ const combinationBoardDivs = [...document.querySelectorAll('#picked-comb-board >
 /*----- event listeners -----*/
 document.getElementById('resetButton').addEventListener('click', handleReset)
 document.getElementById('check').addEventListener('click', handleCheck)
+document.getElementById('resetGame').addEventListener('click', handleResetGame)
 let click = document.getElementById("clickSound");
 let check = document.getElementById("checkSound")
 samples.forEach(el => {
@@ -64,11 +65,31 @@ function handleCheck(e) {
     renderPlayersBoard()
     moveToPlayerBoard();
     resetCombinationBoard();
-    renderPickedCombinationBoard();
-    pickedCombinationBoard = []
-    renderWinningMessage()
+    // renderPickedCombinationBoard();
+    // renderWinningMessage()
+    // pickedCombinationBoard = []
     render();
     currentGuess++;
+}
+
+function handleResetGame(e) {
+    init()
+    resetCombinationBoard();
+    renderPickedCombinationBoard();
+    pickedCombinationBoard = []
+
+    //remove classes from player boards
+    const circles = [...document.querySelectorAll('.playersBoard .board > div')]
+    circles.forEach((el) => {
+        el.classList.remove("red", "yellow", "orange", "purple", "blue", "green")
+    })
+    //remove classes from feedback boards
+    // const squares = [...document.querySelectorAll('.playersBoard .f-board > div')]
+    // circles.forEach((el) => {
+    //     el.classList.remove("true", "false")
+    // })
+
+
 }
 
 // Render the picked combination board
@@ -130,6 +151,7 @@ function generateWinCombo() {
 function render() {
     renderWinningMessage()
     renderPickedCombinationBoard();
+
 }
 
 // Reset combination board
