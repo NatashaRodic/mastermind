@@ -17,14 +17,13 @@ const samples = [...document.querySelectorAll('#sample-board > div')]
 const combinationBoardDivs = [...document.querySelectorAll('#picked-comb-board > div')]
 
 /*----- event listeners -----*/
-samples.forEach(el => {
-    el.addEventListener('click', handleClick);
-})
 document.getElementById('resetButton').addEventListener('click', handleReset)
 document.getElementById('check').addEventListener('click', handleCheck)
 let click = document.getElementById("clickSound");
 let check = document.getElementById("checkSound")
-
+samples.forEach(el => {
+    el.addEventListener('click', handleClick);
+})
 
 /*----- functions -----*/
 init();
@@ -58,7 +57,7 @@ function handleReset(e) {
 // Handle click on check button
 function handleCheck(e) {
     check.play()
-    if (pickedCombinationBoard.length < 4) {
+    if (pickedCombinationBoard.length < 4 || message.innerText === `You Guessed the combination 🎉`) {
         return
     }
     renderFeedbackBoard();
@@ -150,9 +149,6 @@ function moveToPlayerBoard() {
 function renderWinningMessage() {
     if (playersBoard[currentGuess].every((el, idx) => el === winCombo[idx])) {
         message.innerText = `You Guessed the combination 🎉`
-        samples.forEach(el => {
-            el.removeEventListener('click', handleClick);
-        })
     } else if (currentGuess === 9) {
         message.innerText = `You Lost the game 😭`
     }
