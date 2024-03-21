@@ -38,7 +38,7 @@ Welcome to Mastermind! Crack the computer's secret code within 10 attempts to wi
 
 ---
 
-### ::calling: Getting started [ :arrow_forward:](https://natasharodic.github.io/mastermind/)
+### Getting started [ :arrow_forward:](https://natasharodic.github.io/mastermind/)
 
 1. Pick Color Combination:
    -- Choose four colors from the sidebar to begin.
