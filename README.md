@@ -57,6 +57,7 @@ Welcome to Mastermind! Crack the computer's secret code within 10 attempts to wi
 ### Next Steps
 
 <details>
-    <summary>Toggle Switch</summary>
-    Foldable Content[enter image description here][1]
+    <summary>Wireframes</summary>
+    ![Screen 1](https://natasharodic.github.io/images/Masterming-Screen1.png)
+    ![Screen 2](https://natasharodic.github.io/images/Masterming-Screen.png)
 </details>
