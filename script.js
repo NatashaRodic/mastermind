@@ -83,11 +83,11 @@ function handleResetGame(e) {
     circles.forEach((el) => {
         el.classList.remove("red", "yellow", "orange", "purple", "blue", "green")
     })
-    //remove classes from feedback boards
-    // const squares = [...document.querySelectorAll('.playersBoard .f-board > div')]
-    // circles.forEach((el) => {
-    //     el.classList.remove("true", "false")
-    // })
+    // remove classes from feedback boards
+    const squares = [...document.querySelectorAll('.playersBoard .f-board > div')]
+    squares.forEach((el) => {
+        el.classList.remove("true", "false")
+    })
 
 
 }
@@ -97,7 +97,6 @@ function renderPickedCombinationBoard() {
     combinationBoardDivs.forEach((el) => {
         el.className = ''; // Clear all existing classes
     });
-
     combinationBoardDivs.forEach((el, idx) => {
         pickedColor = pickedCombinationBoard[idx]
         el.classList.add(`${pickedColor}`)
@@ -122,14 +121,14 @@ function renderFeedbackBoard() {
     let winningSet = winCombo.slice();
     for (let index = 0; index < 4; index++) {
         if (playerChoice[index] === winningSet[index]) {
-            document.querySelector(`#f${currentGuess} .circle${feedbackField}`).style.backgroundColor = "red";
+            document.querySelector(`#f${currentGuess} .circle${feedbackField}`).classList.add('true');
             playerChoice[index] = winningSet[index] = "checked";
             feedbackField++;
         }
     }
     for (let index = 0; index < 4; index++) {
         if (winningSet.includes(playerChoice[index]) && playerChoice[index] !== "checked") {
-            document.querySelector(`#f${currentGuess} .circle${feedbackField}`).style.backgroundColor = "white";
+            document.querySelector(`#f${currentGuess} .circle${feedbackField}`).classList.add('false');
             winningSet[winningSet.indexOf(playerChoice[index])] = "checked";
             feedbackField++;
         }
