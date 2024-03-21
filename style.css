@@ -10,8 +10,6 @@
     /* TEXT VARIABLES */
     --text-black: #252528;
     --text-white: #FFFFFF;
-    /* --body-font: 'Inter';
-    --heading-font: 'Lobster'; */
     --standard-width: 1144px;
 
     --standard-border-radius: 10px;
@@ -61,8 +59,8 @@ h2 {
 
 .board div {
     border: 1px solid var(--standard-border);
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     border-radius: var(--circle-border-radius);
     margin: 10px
 }
@@ -91,8 +89,8 @@ h2 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    width: 44px;
-    height: 44px;
+    width: 50px;
+    height: 50px;
     grid-gap: 10px;
 
     background-color: rgba(78, 70, 89, 0.824);
@@ -116,7 +114,6 @@ h2 {
     flex-direction: column;
     width: 10px;
     order: 1;
-    margin-bottom: 28px;
     background-color: transparent;
 }
 
@@ -137,11 +134,12 @@ h2 {
 /* Button Styles */
 
 #check {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     background-color: #af125b;
     padding: 10px 0px;
-    padding-top: 14px;
+    padding-left: 3px;
+    padding-top: 16px;
     border-radius: var(--standard-border-radius);
     box-sizing: border-box;
 }
@@ -165,23 +163,24 @@ h2 {
 }
 
 .controlButtons {
-    max-width: 300px;
+    max-width: 250px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .controlButton {
     color: var(--main-bg-pink);
     background-color: var(--button-color);
     border: 1px solid var(--main-bg-pink);
-    padding: 10px 20px;
+    padding: 5px 7px;
     display: inline-block;
-    border-radius: var(--standard-border-radius);
+    margin: 2px 5px;
+    border-radius: 5px;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 10px;
 }
 
 .controlButton:hover {
@@ -251,28 +250,84 @@ h2 {
 }
 
 
-@media only screen and (min-width: 600px) {
+/* Media Query for low resolution  Tablets, Ipads */
+@media (min-width: 481px) and (max-width: 767px) {
     h1 {
-        padding-left: 30px;
-        font-size: 48px;
+        padding-left: 60px;
+        font-size: 40px;
     }
 
     .f-board,
     .board div {
-        width: 64px;
-        height: 64px;
+        width: 50px;
+        height: 50px;
     }
 
     .f-board {
-        width: 90px;
-        height: 90px;
+        width: 70px;
+        height: 70px;
+    }
+
+    #check {
+        padding-top: 24px;
+        padding-left: 2px;
+        width: 70px;
+        height: 70px;
+    }
+
+    #check .button {
+        font-size: 16px;
+    }
+
+    .sampleBoard {
+        flex-direction: column;
+        width: auto;
+        order: 1;
+        margin-bottom: 0px;
+    }
+
+    .controlButtons {
+        max-width: 300px;
+    }
+
+    .controlButton {
+        padding: 10px 20px;
+        font-size: 12px;
+    }
+}
+
+
+/* Media Query for Desktops */
+@media only screen and (min-width: 768px) {
+    h1 {
+        padding-left: 50px;
+        font-size: 48px;
+    }
+
+    .board div {
+        border: 1px solid var(--standard-border);
+        height: 30px;
+        width: 30px;
+        border-radius: var(--circle-border-radius);
+        margin: 10px
+    }
+
+    .f-board,
+    .board div {
+        width: 60px;
+        height: 60px;
+    }
+
+    .f-board {
+        width: 84px;
+        height: 84px;
     }
 
     #check {
         padding-top: 26px;
-        padding-left: 5px;
-        width: 90px;
-        height: 90px;
+        padding-left: 3px;
+        width: 84px;
+        height: 84px;
     }
 
     #check .button {
@@ -287,11 +342,13 @@ h2 {
     }
 
     .controlButtons {
-        max-width: 300px;
-        font-size: 22px;
+        max-width: 350px;
+        margin-top: 20px;
     }
-}
 
-p {
-    font-size: 8px;
+    .controlButton {
+        margin-bottom: 20px;
+        padding: 15px 20px;
+        font-size: 14px;
+    }
 }

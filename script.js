@@ -75,9 +75,8 @@ function handleCheck(e) {
 function handleResetGame(e) {
     init()
     resetCombinationBoard();
-    renderPickedCombinationBoard();
+    renderWinningMessage()
     pickedCombinationBoard = []
-
     //remove classes from player boards
     const circles = [...document.querySelectorAll('.playersBoard .board > div')]
     circles.forEach((el) => {
@@ -88,7 +87,7 @@ function handleResetGame(e) {
     squares.forEach((el) => {
         el.classList.remove("true", "false")
     })
-
+    message.innerText = ''
 
 }
 
