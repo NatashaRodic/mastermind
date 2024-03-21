@@ -58,6 +58,15 @@ Welcome to Mastermind! Crack the computer's secret code within 10 attempts to wi
 
 <details>
     <summary>Wireframes</summary>
-    ![Screen 1](https://natasharodic.github.io/images/Masterming-Screen1.png)
-    ![Screen 2](https://natasharodic.github.io/images/Masterming-Screen.png)
+   
+   ## Screen 1
+
+![Mastermind-Screen1](images/Mastermind-Screen1.png)
+
+---
+
+## Screen 2
+
+![Mastermind-Screen1](images/Mastermind-Screen2.png)
+
 </details>
