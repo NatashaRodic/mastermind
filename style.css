@@ -5,8 +5,8 @@
     --main-bg-light: #f1f1f2;
     --primary-hover-color: #f5d3ef;
     --standard-border: #a6a4a4;
-    --standard-button-color: #efb5b5;
-    --button-hover-color: #6f044b;
+    --button-light-color: #efb5b5;
+    --button-pink-color: #6f044b;
     /* TEXT VARIABLES */
     --text-black: #252528;
     --text-white: #FFFFFF;
@@ -136,7 +136,7 @@ h2 {
 #check {
     width: 50px;
     height: 50px;
-    background-color: #af125b;
+    background-color: var(--main-bg-pink);
     padding: 10px 0px;
     padding-left: 3px;
     padding-top: 16px;
@@ -214,27 +214,46 @@ h2 {
 
 .red {
     background-color: #f0a1ce;
+    opacity: 1;
+    background-image: radial-gradient(circle at center center, #cf0164, #f0a1ce), repeating-radial-gradient(circle at center center, #cf0164, #cf0164, 9px, transparent 18px, transparent 9px);
+    background-blend-mode: multiply;
 }
 
 .purple {
     background-color: #824d74;
+    opacity: 1;
+    background: repeating-linear-gradient(-45deg, #a56a95, #a56a95 4px, #824d74 4px, #824d74 20px);
 }
 
 .green {
     background-color: #20bfaf;
+    opacity: 1;
+    background-image: linear-gradient(30deg, #007f73 12%, transparent 12.5%, transparent 87%, #007f73 87.5%, #007f73), linear-gradient(150deg, #007f73 12%, transparent 12.5%, transparent 87%, #007f73 87.5%, #007f73), linear-gradient(30deg, #007f73 12%, transparent 12.5%, transparent 87%, #007f73 87.5%, #007f73), linear-gradient(150deg, #007f73 12%, transparent 12.5%, transparent 87%, #007f73 87.5%, #007f73), linear-gradient(60deg, #007f7377 25%, transparent 25.5%, transparent 75%, #007f7377 75%, #007f7377), linear-gradient(60deg, #007f7377 25%, transparent 25.5%, transparent 75%, #007f7377 75%, #007f7377);
+    background-size: 16px 28px;
+    background-position: 0 0, 0 0, 8px 14px, 8px 14px, 0 0, 8px 14px;
 
 }
 
 .blue {
     background-color: #527aa2;
+    opacity: 1;
+    background-image: linear-gradient(135deg, #49648a 25%, transparent 25%), linear-gradient(225deg, #49648a 25%, transparent 25%), linear-gradient(45deg, #49648a 25%, transparent 25%), linear-gradient(315deg, #49648a 25%, #527aa2 25%);
+    background-position: 8px 0, 8px 0, 0 0, 0 0;
+    background-size: 16px 16px;
+    background-repeat: repeat;
 }
 
 .yellow {
     background-color: #ccb95f;
+    opacity: 1;
+    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #ccb95f 8px), repeating-linear-gradient(#f9e89755, #f9e897);
 }
 
 .orange {
     background-color: #f6995c;
+    opacity: 1;
+    background-image: linear-gradient(#b76935 0.8px, transparent 0.8px), linear-gradient(to right, #b76935 0.8px, #f6995c 0.8px);
+    background-size: 16px 16px;
 }
 
 .transparent {
@@ -242,11 +261,19 @@ h2 {
 }
 
 .true {
-    background-color: red;
+    background-color: rgb(237, 30, 30);
+    background-image: url();
+    background-image: url('images/star.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .false {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
+    background-image: url();
+    background-image: url('images/sun.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 

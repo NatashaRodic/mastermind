@@ -198,6 +198,26 @@
 
     </div>
 
+    <canvas class="background"></canvas>
+    <script>
+        window.onload = function () {
+            Particles.
+                init
+                ({
+                    selector:
+                        '.background',
+                    color: '#df75b1',
+                    connectParticles: true,
+                    sizeVariations: 5,
+                    speed: 1.6,
+                    maxParticles: 150,
+
+                });
+        };
+    </script>
+
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
+
     <audio id="checkSound" src="resources/check.wav"></audio>
     <audio id="clickSound" src="resources/click.wav"></audio>
 
