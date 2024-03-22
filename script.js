@@ -58,7 +58,7 @@ function handleReset(e) {
 // Handle click on check button
 function handleCheck(e) {
     check.play()
-    if (pickedCombinationBoard.length < 4 || message.innerText === `You Guessed the combination 🎉`) {
+    if (pickedCombinationBoard.length < 4 || message.innerText === `You guessed the combination 🎉`) {
         return
     }
     renderFeedbackBoard();
@@ -168,8 +168,8 @@ function moveToPlayerBoard() {
 // Render winning/losing message
 function renderWinningMessage() {
     if (playersBoard[currentGuess].every((el, idx) => el === winCombo[idx])) {
-        message.innerText = `You Guessed the combination 🎉`
+        message.innerText = `You guessed the combination 🎉`
     } else if (currentGuess === 9) {
-        message.innerText = `You Lost the game 😭`
+        message.innerText = `You lost the game 😭`
     }
 }

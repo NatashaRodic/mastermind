@@ -41,6 +41,10 @@ h1 {
 
 h2 {
     text-align: center;
+    font-weight: lighter;
+    font-family: "Black Ops One", system-ui;
+    color: var(--main-bg-pink);
+    padding-left: 50px;
 }
 
 /* LAYOUT STYLES */
@@ -145,12 +149,13 @@ h2 {
 }
 
 #check:hover {
-    background-color: rgb(48, 48, 110);
+    background-color: #f1f1f2;
+    border: 1px solid var(--button-pink-color);
     cursor: pointer;
 }
 
 #check:hover .button {
-    color: #f5d3ef;
+    color: var(--button-pink-color);
 }
 
 #check .button {
